@@ -8,12 +8,292 @@
 
 </head>
 <body>
-<h1>Gifs</h1>
-  <h2>Blinking Eye</h2>
-<img src="https://srader98.github.io/index.html/image/eye.gif" width="500" alt="Image1">
-<h2>A Friend</h2>
-  <img src="https://srader98.github.io/index.html/image/gif.gif" width="500" alt="Image1">       
-  <h2>Links</h2>
-    <p><a href="index.html">Home</a></p>
+ <body style="background-color:rgb(28, 32, 50);"></body>       
+  <style>
+body {
+margin: 0;
+font-family: Lucida, monospace;
+font-size: 13px
+}
+
+.sidebar {
+position: fixed;
+top: 0;
+left: 0;
+width: 140px;
+height: 100%;
+background-color: #000000;
+padding-top: 20px;
+display: flex;
+flex-direction: column;
+}
+
+.sidebar a{
+padding: 7px 15px;
+text-decoration: none;
+color: rgb(87, 141, 227);
+font-size: 14px;
+transition: 0.03;
+}
+
+.sidebar a:hover {
+background-color: #ffffff;
+}
+
+.content {
+margin-left: 200px;
+padding: 30px;
+}
+</style>
+</head>
+<body>
+<div class="sidebar">
+<a href="index.html">Home</a>
+<a href="readings.html">Readings</a>
+<a href="images.html">Images</a>
+<a href="photomontage.html">Photomontages</a>
+<a href="vectorposters.html">Posters</a>
+<a href="eye.html">Eye Vector</a>
+<a href="background.html">Background</a>
+<a href="gifs.html">Gifs</a>
+<a href="graph.html">Graph</a>
+<a href="#contact">Interactive</a>
+</div>
+
+<div class="content">
+<style>      
+.text{
+     transition: 0.5s;
+   }
+   
+.text:hover{
+  letter-spacing: 7px;
+}
+</style>
+<h1 class="text" style="color:white;">Puppet Warp Gifs</h1>
+
+<style>
+
+  .containter {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 300px;
+    margin: 30px auto;
+    text-align: center;
+    padding: 50px;
+  }
+
+  .container img {
+    width: 250px;          
+    height: auto;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.4s ease;
+  }
+
+  .scroll-box {
+    width: 700px;          
+    height: 200px;         
+    padding: 40px;
+    margin: 40px;
+    overflow-y: scroll;  
+    background-color: #f9f9f9;
+    border: 5px double #1C6EA4;
+    border-radius: 26px;
+  }
+
+.container img:hover {
+  transform: scale(1.30);
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h2 style="color:white; text-decoration: underline;">#1 "An Eye"</h2> 
+  <img src="https://srader98.github.io/index.html/image/eye.gif" alt="Image">
+</div> 
+
+<div class="container">
+<h2 style="color:white; text-decoration: underline;">#2 "A Friend"</h2>
+  <img src="https://srader98.github.io/index.html/image/gif.gif" alt="Image">
+</div>
+  <script type="text/javascript">
+// <![CDATA[
+var colour="#FFFFFF";
+var sparkles=120;
+
+/****************************
+*  Tinkerbell Magic Sparkle *
+* (c) 2005 mf2fm web-design *
+*  http://www.mf2fm.com/rv  *
+* DON'T EDIT BELOW THIS BOX *
+****************************/
+var x=ox=400;
+var y=oy=300;
+var swide=800;
+var shigh=600;
+var sleft=sdown=0;
+var tiny=new Array();
+var star=new Array();
+var starv=new Array();
+var starx=new Array();
+var stary=new Array();
+var tinyx=new Array();
+var tinyy=new Array();
+var tinyv=new Array();
+
+window.onload=function() { if (document.getElementById) {
+  var i, rats, rlef, rdow;
+  for (var i=0; i<sparkles; i++) {
+    var rats=createDiv(3, 3);
+    rats.style.visibility="hidden";
+    document.body.appendChild(tiny[i]=rats);
+    starv[i]=0;
+    tinyv[i]=0;
+    var rats=createDiv(5, 5);
+    rats.style.backgroundColor="transparent";
+    rats.style.visibility="hidden";
+    var rlef=createDiv(1, 5);
+    var rdow=createDiv(5, 1);
+    rats.appendChild(rlef);
+    rats.appendChild(rdow);
+    rlef.style.top="2px";
+    rlef.style.left="0px";
+    rdow.style.top="0px";
+    rdow.style.left="2px";
+    document.body.appendChild(star[i]=rats);
+  }
+  set_width();
+  sparkle();
+}}
+
+function sparkle() {
+  var c;
+  if (x!=ox || y!=oy) {
+    ox=x;
+    oy=y;
+    for (c=0; c<sparkles; c++) if (!starv[c]) {
+      star[c].style.left=(starx[c]=x)+"px";
+      star[c].style.top=(stary[c]=y)+"px";
+      star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+      star[c].style.visibility="visible";
+      starv[c]=50;
+      break;
+    }
+  }
+  for (c=0; c<sparkles; c++) {
+    if (starv[c]) update_star(c);
+    if (tinyv[c]) update_tiny(c);
+  }
+  setTimeout("sparkle()", 40);
+}
+
+function update_star(i) {
+  if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+  if (starv[i]) {
+    stary[i]+=1+Math.random()*3;
+    if (stary[i]<shigh+sdown) {
+      star[i].style.top=stary[i]+"px";
+      starx[i]+=(i%5-2)/5;
+      star[i].style.left=starx[i]+"px";
+    }
+    else {
+      star[i].style.visibility="hidden";
+      starv[i]=0;
+      return;
+    }
+  }
+  else {
+    tinyv[i]=50;
+    tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+    tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+    tiny[i].style.width="2px";
+    tiny[i].style.height="2px";
+    star[i].style.visibility="hidden";
+    tiny[i].style.visibility="visible"
+  }
+}
+
+function update_tiny(i) {
+  if (--tinyv[i]==25) {
+    tiny[i].style.width="1px";
+    tiny[i].style.height="1px";
+  }
+  if (tinyv[i]) {
+    tinyy[i]+=1+Math.random()*3;
+    if (tinyy[i]<shigh+sdown) {
+      tiny[i].style.top=tinyy[i]+"px";
+      tinyx[i]+=(i%5-2)/5;
+      tiny[i].style.left=tinyx[i]+"px";
+    }
+    else {
+      tiny[i].style.visibility="hidden";
+      tinyv[i]=0;
+      return;
+    }
+  }
+  else tiny[i].style.visibility="hidden";
+}
+
+document.onmousemove=mouse;
+function mouse(e) {
+  set_scroll();
+  y=(e)?e.pageY:event.y+sdown;
+  x=(e)?e.pageX:event.x+sleft;
+}
+
+function set_scroll() {
+  if (typeof(self.pageYOffset)=="number") {
+    sdown=self.pageYOffset;
+    sleft=self.pageXOffset;
+  }
+  else if (document.body.scrollTop || document.body.scrollLeft) {
+    sdown=document.body.scrollTop;
+    sleft=document.body.scrollLeft;
+  }
+  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+    sleft=document.documentElement.scrollLeft;
+	sdown=document.documentElement.scrollTop;
+  }
+  else {
+    sdown=0;
+    sleft=0;
+  }
+}
+
+window.onresize=set_width;
+function set_width() {
+  if (typeof(self.innerWidth)=="number") {
+    swide=self.innerWidth;
+    shigh=self.innerHeight;
+  }
+  else if (document.documentElement && document.documentElement.clientWidth) {
+    swide=document.documentElement.clientWidth;
+    shigh=document.documentElement.clientHeight;
+  }
+  else if (document.body.clientWidth) {
+    swide=document.body.clientWidth;
+    shigh=document.body.clientHeight;
+  }
+}
+
+function createDiv(height, width) {
+  var div=document.createElement("div");
+  div.style.position="absolute";
+  div.style.height=height+"px";
+  div.style.width=width+"px";
+  div.style.overflow="hidden";
+  div.style.backgroundColor=colour;
+  return (div);
+}
+// ]]>
+</script>
+
 </body>
 </html>
